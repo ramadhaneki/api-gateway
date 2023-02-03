@@ -7,11 +7,17 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const coursesRouter = require('./routes/courses');
+const chaptersRouter = require('./routes/chapters');
+const lessonsRouter = require('./routes/lessons');
+const imageCoursesRouter = require('./routes/imageCourses');
+const myCoursesRouter = require('./routes/myCourses');
 const mediaRouter = require('./routes/media');
 const ordersRouter = require('./routes/orders');
 const paymentsRouter = require('./routes/payments');
 const refreshTokensRouter = require('./routes/refreshTokens');
 const mentorsRouter = require('./routes/mentors');
+const reviewsRouter = require('./routes/reviews');
+
 
 
 const verifyToken = require('./middlewares/verifyToken');
@@ -32,5 +38,10 @@ app.use('/orders', ordersRouter);
 app.use('/payments', paymentsRouter);
 app.use('/refresh-tokens', refreshTokensRouter);
 app.use('/mentors', verifyToken, mentorsRouter);
+app.use('/chapters', verifyToken, chaptersRouter);
+app.use('/lessons', verifyToken, lessonsRouter);
+app.use('/image-courses', verifyToken, imageCoursesRouter);
+app.use('/my-courses', verifyToken, myCoursesRouter);
+app.use('/reviews', verifyToken, reviewsRouter);
 
 module.exports = app;
