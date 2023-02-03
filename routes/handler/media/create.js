@@ -4,6 +4,7 @@ const {
 } = process.env;
 
 const api = apiAdapter(URL_SERVICE_MEDIA);
+// console.log(api);
 
 module.exports = async(req, res) => {
     try {
